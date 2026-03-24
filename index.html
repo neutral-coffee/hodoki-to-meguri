@@ -1,466 +1,316 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>解きと巡り | 身体・心・暮らしのもつれを取り除く</title>
-    <meta name="description" content="珈琲と鍼灸と、少しの余白。身体・心・暮らしのもつれを取り除く、月に1度のよりどころ。『解きと巡り』">
+    <title>解きと巡り | 身体と心と暮らしのメンテナンス</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
-        /* =========================================
-           Variables & Reset
-        ========================================= */
         :root {
-            --color-bg: #F9F6F2;
-            --color-text: #3D2F2B;
-            --color-accent: #8C6A53;
-            --color-white: #FFFFFF;
-            --font-serif: 'Noto Serif JP', serif;
-            --font-sans: 'Noto Sans JP', sans-serif;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 8rem;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --color-ivory: #F9F8F4;
+            --color-coffee: #3E2723;
+            --color-charcoal: #4A4A4A;
+            --color-nagi-blue: #7D8E95;
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--color-text);
-            background-color: var(--color-bg);
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--color-ivory);
+            color: var(--color-coffee);
             line-height: 1.8;
-            letter-spacing: 0.05em;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        .font-serif {
+            font-family: 'Noto Serif JP', serif;
         }
 
-        /* =========================================
-           Typography & Utility
-        ========================================= */
-        h1, h2, h3, .serif {
-            font-family: var(--font-serif);
-            font-weight: 500;
+        .washi-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/p6.png');
+            background-color: var(--color-ivory);
         }
 
-        .container {
-            width: 90%;
-            max-width: 960px;
-            margin: 0 auto;
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('yohaku_coffee_real_bg.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .section-padding {
-            padding: var(--spacing-xl) 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* =========================================
-           1. First View (Hero)
-        ========================================= */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(61, 47, 43, 0.6), rgba(61, 47, 43, 0.4)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            color: var(--color-white);
-            text-align: center;
-        }
-
-        .hero-content {
-            padding: var(--spacing-md);
-            animation: fadeInHero 2s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            letter-spacing: 0.2em;
-            margin-bottom: var(--spacing-md);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 2;
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        /* =========================================
-           2. Intro
-        ========================================= */
-        .intro-text p {
-            margin-bottom: var(--spacing-md);
-            font-size: 1.1rem;
-        }
-        
-        .intro-lead {
-            font-size: 1.25rem;
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-lg) !important;
-            font-family: var(--font-serif);
-            line-height: 2.2;
-        }
-
-        /* =========================================
-           3. Concept
-        ========================================= */
-        .concept-section {
-            background-color: var(--color-white);
-        }
-
-        .section-title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: var(--spacing-lg);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 1px;
-            background-color: var(--color-accent);
-        }
-
-        .concept-body {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        /* =========================================
-           4. Contents
-        ========================================= */
-        .contents-category {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .category-title {
-            font-size: 1.3rem;
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-md);
-            border-bottom: 1px solid rgba(140, 106, 83, 0.3);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .card {
-            background: var(--color-white);
-            padding: var(--spacing-lg) var(--spacing-md);
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .card h4 {
-            font-size: 1.2rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text);
-            font-family: var(--font-serif);
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* =========================================
-           5. Benefits
-        ========================================= */
-        .benefits-section {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-        }
-
-        .benefits-section .section-title::after {
-            background-color: var(--color-bg);
-        }
-
-        .benefits-intro {
-            margin-bottom: var(--spacing-lg);
-            font-size: 1.2rem;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            text-align: left;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .benefit-item {
-            border-left: 1px solid rgba(249, 246, 242, 0.2);
-            padding-left: var(--spacing-md);
-        }
-
-        .benefit-item h4 {
-            color: var(--color-accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-serif);
-        }
-
-        .benefit-item p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        /* =========================================
-           6. Event Info
-        ========================================= */
-        .info-table {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-
-        .info-table th, .info-table td {
-            padding: 1.5rem 1rem;
-            border-bottom: 1px solid rgba(61, 47, 43, 0.1);
-            text-align: left;
-        }
-
-        .info-table th {
-            font-family: var(--font-serif);
-            width: 30%;
-            color: var(--color-accent);
-            font-weight: 500;
-        }
-
-        /* =========================================
-           Footer
-        ========================================= */
-        .footer {
-            text-align: center;
-            padding: var(--spacing-md) 0;
-            background-color: var(--color-white);
-            font-size: 0.85rem;
-            color: #888;
-        }
-
-        /* =========================================
-           Animations (Scroll Fade In)
-        ========================================= */
-        @keyframes fadeInHero {
-            to { opacity: 1; transform: translateY(0); }
+            padding: 6rem 1.5rem;
         }
 
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
-        .fade-in.is-visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* =========================================
-           Media Queries
-        ========================================= */
-        @media (max-width: 768px) {
-            :root {
-                --spacing-xl: 5rem;
-                --spacing-lg: 3rem;
-            }
-            .info-table th, .info-table td {
-                display: block;
-                width: 100%;
-                padding: 0.8rem 0;
-            }
-            .info-table th {
-                border-bottom: none;
-                padding-top: 1.5rem;
+        .accent-border {
+            border-left: 1px solid var(--color-nagi-blue);
+            padding-left: 1.5rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            letter-spacing: 0.1em;
+        }
+
+        .img-container {
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Google Maps Container */
+        .map-container {
+            filter: grayscale(100%) contrast(90%);
+            transition: filter 0.3s ease;
+        }
+
+        .map-container:hover {
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.75rem;
             }
         }
     </style>
 </head>
-<body>
+
+<body class="washi-bg">
 
     <!-- 1. ファーストビュー -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title"><ruby>解<rt>ほど</rt></ruby>きと<ruby>巡<rt>めぐ</rt></ruby>り</h1>
-            <p class="hero-subtitle serif">珈琲と鍼灸と、少しの余白。<br>身体・心・暮らしのもつれを取り除く、月に1度のよりどころ。</p>
+    <header class="relative h-screen flex items-center justify-center text-center px-4 hero-bg">
+        <div class="relative z-10 text-white">
+            <h1 class="font-serif hero-title text-3xl md:text-5xl mb-6 tracking-widest leading-relaxed">
+                身体と心と暮らしの<br>メンテナンス
+            </h1>
+            <p class="font-serif text-lg md:text-xl mb-12 tracking-wider opacity-90">
+                日常の忙しさから離れる、月1回のよりどころ
+            </p>
+            <div class="text-sm tracking-widest font-light">
+                <ruby>解<rt>ほどき</rt></ruby>と<ruby>巡<rt>めぐ</rt></ruby>り。<br>
+                <span class="text-[10px] mt-2 block opacity-70 italic">Presented by Neutral Coffee</span>
+            </div>
         </div>
     </header>
 
-    <main>
-        <!-- 2. 導入 -->
-        <section class="section-padding text-center fade-in">
-            <div class="container intro-text">
-                <p class="intro-lead">「なぜか、ずっと体が重い。」<br>「やりたいことはあるのに、思考がまとまらない。」<br>「将来の不安が、いつも心のどこかに引っかかっている。」</p>
-                <p>それは、あなたが弱いからではありません。</p>
-                <p>日々を懸命に生きる中で、身体、心、そして暮らしの糸が、<br>少しずつ「もつれて」しまっただけなのです。</p>
-                <p>もつれたままでは、新しい風は吹き込みません。<br>一度立ち止まり、その糸を丁寧に解き、再び巡らせる時間が必要です。</p>
+    <!-- 2. 導入 -->
+    <section class="section-padding max-w-2xl mx-auto text-center fade-in">
+        <div class="space-y-10 font-serif text-charcoal leading-loose">
+            <div class="space-y-2">
+                <p class="text-lg">「身体が、ずっと重いような。」</p>
+                <p class="text-lg">「やりたいことはあるのに、考えがまとまらないような。」</p>
+                <p class="text-lg">「将来の不安が、いつも心のどこかに引っかかっているような。」</p>
             </div>
-        </section>
-
-        <!-- 3. コンセプト -->
-        <section class="section-padding concept-section text-center">
-            <div class="container fade-in">
-                <h2 class="section-title">Neutral Coffeeが提案する、心身の調律。</h2>
-                <div class="concept-body">
-                    <p>私たちが珈琲を通じて追求してきたのは、過緊張でも無気力でもない「ニュートラル」な状態です。</p>
-                    <p>その哲学を広げ、身体から暮らしまでを整える場を作りました。</p>
-                    <p>『解きと巡り』は、あなたが本来の自分に戻るための「糸口」が集まるマルシェです。</p>
-                </div>
+            <p class="mt-16 text-sm leading-relaxed opacity-80">
+                それは、あなたが弱いからではありません。<br>
+                溢れる情報の中で、身体、心、そして暮らしの糸が、<br>
+                少しずつ「もつれて」しまっただけかもしれません。
+            </p>
+            <p class="text-sm leading-relaxed font-semibold">
+                もつれたままでは、新しい風は吹き込みにくい。<br>
+                一度立ち止まり、その糸を丁寧に「解き」、<br>
+                再び「巡り」合わせる時間があるといいですね。
+            </p>
+            <div class="mt-16 img-container h-80 shadow-sm">
+                <img src="anxious_woman_back.png" alt="悩みや不安を抱えている女性の後ろ姿">
             </div>
-        </section>
-
-        <!-- 4. 今月の「解き」と「巡り」 -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="text-center fade-in">
-                    <h2 class="section-title">今月の「解き」と「巡り」</h2>
-                </div>
-
-                <div class="contents-category fade-in">
-                    <h3 class="category-title">【解く】身体と脳の緊張をリセットする</h3>
-                    <div class="grid-cards">
-                        <article class="card">
-                            <h4>Neutral Coffeeのピラジン珈琲</h4>
-                            <p>中深煎りの香りに含まれる成分「ピラジン」が、脳をリラックスモードへ切り替えます。</p>
-                        </article>
-                        <article class="card">
-                            <h4>深部に届く鍼灸施術</h4>
-                            <p>プロの鍼灸師が、自律神経の乱れや物理的なコリを解き、深い呼吸を取り戻します。</p>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="contents-category fade-in">
-                    <h3 class="category-title">【巡る】心と未来に新しい流れを作る</h3>
-                    <div class="grid-cards">
-                        <article class="card">
-                            <h4>流しの古本屋：心の余白</h4>
-                            <p>誰かの人生が綴られた一冊が、凝り固まった視点を解き放ち、新しい思考を巡らせます。</p>
-                        </article>
-                        <article class="card">
-                            <h4>行政書士の相続相談：暮らしの余白</h4>
-                            <p>後回しにしていた未来の不安。専門家と整理することで、「もつれ」を安心という名の巡りに変えます。</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. ベネフィット -->
-        <section class="section-padding benefits-section text-center">
-            <div class="container fade-in">
-                <h2 class="section-title">この場所を去る時、</h2>
-                <p class="benefits-intro serif">あなたは「少しの余白」を手にしています。</p>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <h4>身体</h4>
-                        <p>深部体温が整い、心拍が落ち着く。</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4>心</h4>
-                        <p>視界がクリアになり、新しい興味が湧いてくる。</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4>暮らし</h4>
-                        <p>懸案事項が整理され、足取りが軽くなる。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. 開催概要・アクセス -->
-        <section class="section-padding">
-            <div class="container fade-in">
-                <div class="text-center">
-                    <h2 class="section-title">開催概要</h2>
-                </div>
-                <table class="info-table">
-                    <tbody>
-                        <tr>
-                            <th>日時</th>
-                            <td>202X年 月 日（曜） 10:00 - 16:00</td>
-                        </tr>
-                        <tr>
-                            <th>場所</th>
-                            <td>[会場名/住所]</td>
-                        </tr>
-                        <tr>
-                            <th>主体</th>
-                            <td>Neutral Coffee</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 202X Neutral Coffee. All Rights Reserved.</p>
         </div>
+    </section>
+
+    <!-- 3. コンセプト -->
+    <section class="bg-stone-100 section-padding fade-in">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="img-container h-64 md:h-96 order-2 md:order-1">
+                <img src="calm_water.png" alt="穏やかな水面の画像">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="font-serif text-2xl md:text-3xl mb-10 tracking-widest leading-snug">
+                    鍼灸師×珈琲屋が提案する、<br>心身の「凪（なぎ）」。
+                </h2>
+                <div class="accent-border border-l-stone-400 font-serif">
+                    <p class="text-sm mb-6 leading-loose">
+                        鍼灸と珈琲を通じて追求して来たのは、<br>
+                        過緊張でも無気力でもない「ニュートラル」な状態。
+                    </p>
+                    <p class="text-sm mb-6 leading-loose">
+                        身体のもつれを解き、巡らせることで<br>
+                        不安や悩みが解消する場面を多く見て来ました。
+                    </p>
+                    <p class="text-sm leading-loose">
+                        「解きと巡り」には、あなたが本来の自分を戻るきっかけとなる<br>
+                        「糸口」が集まっているかもしれません。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. コンテンツ紹介 -->
+    <section class="section-padding max-w-5xl mx-auto fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+            <!-- 身体のもつれを解く -->
+            <div class="space-y-8">
+                <h3 class="font-serif text-xl border-b border-stone-200 pb-3 flex items-center tracking-widest">
+                    <span class="text-xs mr-4 opacity-50 font-sans">01</span>
+                    身体のもつれを解く
+                </h3>
+
+                <div class="bg-white p-8 rounded shadow-sm border border-stone-100 space-y-4">
+                    <h4 class="font-bold text-sm tracking-widest">NEUTRAL COFFEE（自家焙煎珈琲）</h4>
+                    <p class="text-xs text-charcoal leading-loose">
+                        日々積み重なった疲労やストレスを和らげてくれます。ゆったりと味わう静かな時間が、心にそっと余白を届けます。
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded shadow-sm border border-stone-100 space-y-4">
+                    <h4 class="font-bold text-sm tracking-widest">Physical Garage（鍼灸治療体験）</h4>
+                    <p class="text-xs text-charcoal leading-loose">
+                        頭・首周辺のツボへの刺激から、体液（血液やリンパなど）の循環を整え、身体本来の軽さや心地良さを取り戻すきっかけを与えてきます。
+                    </p>
+                    <p class="text-[10px] font-bold text-nagi-blue pt-4 border-t border-stone-50">
+                        15分 2,000円
+                    </p>
+                </div>
+                <div class="img-container h-64">
+                    <img src="woman_coffee_window.png" alt="コーヒーを片手に窓の外を見ながら一息ついている女性の画像">
+                </div>
+            </div>
+
+            <!-- 暮らしのもつれを巡らせる -->
+            <div class="space-y-8">
+                <h3 class="font-serif text-xl border-b border-stone-200 pb-3 flex items-center tracking-widest">
+                    <span class="text-xs mr-4 opacity-50 font-sans">02</span>
+                    暮らしのもつれを巡らせる
+                </h3>
+
+                <div class="bg-white p-8 rounded shadow-sm border border-stone-100 space-y-4">
+                    <h4 class="font-bold text-sm tracking-widest">流しの古本屋 コウヤブックス（古本）</h4>
+                    <p class="text-xs text-charcoal leading-loose">
+                        本の一節が、凝り固まった視点を解き放ち、新しい思考を巡らせます。偶然の出会いが、明日の景色を変えるかもしれません。
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded shadow-sm border border-stone-100 space-y-4">
+                    <h4 class="font-bold text-sm tracking-widest">法務サポートチーム ミラカタ（行政書士）</h4>
+                    <p class="text-xs text-charcoal leading-loose">
+                        身体が解けた後に向き合う、未来の話。複雑な相続や遺言のもつれを、専門家と整理し、安心という名の巡りに変えます。
+                    </p>
+                    <p class="text-[10px] font-bold text-nagi-blue pt-4 border-t border-stone-50">
+                        20分 相談無料 / ワンドリンクオーダー
+                    </p>
+                </div>
+                <div class="img-container h-64">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800"
+                        alt="[静かな古本と万年筆のイメージ]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ベネフィット -->
+    <section class="section-padding bg-stone-50 fade-in">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-xl md:text-2xl tracking-widest leading-loose">
+                    お帰りの際、あなたは<br>
+                    「すこしの余白」を手に入れているかもしれません。
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 border-t-2 border-emerald-200 shadow-sm text-center">
+                    <div class="text-sm font-bold mb-6 tracking-[0.2em] text-emerald-800 uppercase">身体</div>
+                    <p class="text-base leading-loose font-serif">全身の巡りが整うことで、<br>心拍・呼吸に落ち着きを感じる。</p>
+                </div>
+                <div class="bg-white p-10 border-t-2 border-indigo-200 shadow-sm text-center">
+                    <div class="text-sm font-bold mb-6 tracking-[0.2em] text-indigo-800 uppercase">心</div>
+                    <p class="text-base leading-loose font-serif">思考がクリアになり、<br>新しい興味や関心が湧いてくる。</p>
+                </div>
+                <div class="bg-white p-10 border-t-2 border-amber-200 shadow-sm text-center">
+                    <div class="text-sm font-bold mb-6 tracking-[0.2em] text-amber-800 uppercase">暮らし</div>
+                    <p class="text-base leading-loose font-serif">気になっていた不安や悩みが整理され、<br>気分が少し軽くなる。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. アクセス・概要 -->
+    <section id="contact" class="section-padding max-w-4xl mx-auto fade-in">
+        <div class="grid md:grid-cols-2 gap-12 bg-white p-8 md:p-16 border border-stone-200">
+            <div>
+                <h2 class="font-serif text-2xl mb-10 tracking-widest">開催概要</h2>
+                <dl class="space-y-8 text-sm">
+                    <div class="border-b border-stone-100 pb-4">
+                        <dt class="text-[10px] font-bold text-stone-400 mb-1 tracking-widest uppercase font-sans">Date &
+                            Time</dt>
+                        <dd class="tracking-widest">2026.3.28 Sat / 13:00 - 18:00</dd>
+                    </div>
+                    <div class="border-b border-stone-100 pb-4">
+                        <dt class="text-[10px] font-bold text-stone-400 mb-1 tracking-widest uppercase font-sans">Place
+                        </dt>
+                        <dd class="tracking-widest">102 by ichimaruni<br>大阪市北区中崎西4-29</dd>
+                    </div>
+                    <div class="border-b border-stone-100 pb-4">
+                        <dt class="text-[10px] font-bold text-stone-400 mb-1 tracking-widest uppercase font-sans">
+                            Admission</dt>
+                        <dd class="tracking-widest">無料</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="map-container rounded-sm overflow-hidden h-64 md:h-full border border-stone-100">
+                <iframe src="https://maps.google.com/maps?q=102%20by%20ichimaruni&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 text-center text-[10px] text-stone-400 tracking-[0.3em] uppercase">
+        &copy; 2026 Toki to Meguri - Presented by Neutral Coffee
     </footer>
 
-    <!-- スクロールアニメーション用スクリプト -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
+        // スクロール時のフェードイン
+        const observerOptions = {
+            root: null,
+            threshold: 0.1
+        };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => observer.observe(el));
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
+
 </html>
